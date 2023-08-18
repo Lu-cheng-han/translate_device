@@ -28,7 +28,6 @@ class TranslatorApp(QWidget):
 
     def check_clipboard(self):
         mime_data = self.clipboard.mimeData()
-        print("Ctrl + C",flush=True)
         if mime_data.hasText():
             selected_text = mime_data.text()
             translator = Translator()
@@ -39,6 +38,7 @@ class TranslatorApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.aboutQt()
     translator_app = TranslatorApp()
     translator_app.show()
     sys.exit(app.exec())
